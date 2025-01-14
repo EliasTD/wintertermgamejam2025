@@ -1,7 +1,29 @@
 extends CharacterBody2D
 
+@onready var health_bar: ProgressBar = $HealthBar
+
+
 const speed = 100
 
+var player_health = 10 
+
+#Sets healthbar to max health at the start of the game
+func _ready() -> void:
+	health_bar.value = player_health
+
+#Constantly updates the healthbar
+func _process(delta: float) -> void:
+	health_bar.value = player_health
+
+#Debug tools to manually change the healthbar
+func _on_player_health_up_pressed() -> void:
+	player_health += 1
+
+func _on_player_health_down_pressed() -> void:
+	player_health -= 1
+
+
+#Handles Movement
 func _physics_process(delta):
 	player_movement(delta)
 
