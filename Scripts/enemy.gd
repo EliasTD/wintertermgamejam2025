@@ -4,6 +4,8 @@ var speed = 25
 var player_chase = false
 var player = null
 
+func _ready():
+	$AnimatedSprite2D.play("default")
 func _physics_process(delta):
 	if player_chase:
 		position += (player.position - position)/speed

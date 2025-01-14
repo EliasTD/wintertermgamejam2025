@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qhve5lmr0utd"]
+[gd_scene load_steps=8 format=3 uid="uid://qhve5lmr0utd"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3qig5"]
 [ext_resource type="Texture2D" uid="uid://du5ab5vw7frfw" path="res://Sprites/Characters/player.png" id="3_8wcae"]
@@ -62,12 +62,18 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b1te"]
+radius = 12.1655
+
 [node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 3
 script = ExtResource("1_3qig5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqhio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7b1te")
 
 [node name="gun" parent="." instance=ExtResource("3_qjl4f")]
