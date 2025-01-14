@@ -77,10 +77,10 @@ collision_layer = 3
 script = ExtResource("1_3qig5")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -42.0
-offset_top = -37.0
-offset_right = 42.0
-offset_bottom = -14.0
+offset_left = -43.0
+offset_top = -29.0
+offset_right = 41.0
+offset_bottom = -21.0
 theme_override_styles/background = SubResource("StyleBoxFlat_mfl1h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xum7p")
 max_value = 10.0
@@ -97,6 +97,7 @@ shape = SubResource("CircleShape2D_7b1te")
 [node name="gun" parent="." instance=ExtResource("3_qjl4f")]
 
 [node name="Player Health Up" type="Button" parent="."]
+visible = false
 offset_left = -135.0
 offset_top = -76.0
 offset_right = -51.0
@@ -104,13 +105,12 @@ offset_bottom = -45.0
 text = "Health up"
 
 [node name="Player Health Down" type="Button" parent="."]
+visible = false
 offset_left = 47.0
 offset_top = -76.0
 offset_right = 131.0
 offset_bottom = -45.0
 text = "Health Down"
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="Player Health Up" to="." method="_on_player_health_up_pressed"]
 [connection signal="pressed" from="Player Health Down" to="." method="_on_player_health_down_pressed"]

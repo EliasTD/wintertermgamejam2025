@@ -5,23 +5,11 @@ extends CharacterBody2D
 
 const speed = 100
 
-var player_health = 10 
-
-#Sets healthbar to max health at the start of the game
 func _ready() -> void:
-	health_bar.value = player_health
+	Global.player_health = health_bar.value
 
-#Constantly updates the healthbar
 func _process(delta: float) -> void:
-	health_bar.value = player_health
-
-#Debug tools to manually change the healthbar
-func _on_player_health_up_pressed() -> void:
-	player_health += 1
-
-func _on_player_health_down_pressed() -> void:
-	player_health -= 1
-
+	health_bar.value = Global.player_health
 
 #Handles Movement
 func _physics_process(delta):

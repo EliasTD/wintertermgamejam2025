@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://8n7pusgnqxo7"]
+[gd_scene load_steps=11 format=3 uid="uid://8n7pusgnqxo7"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_gneul"]
 [ext_resource type="Texture2D" uid="uid://dqlfmd7gtfjfq" path="res://Sprites/Characters/Fire_Sprite.png" id="2_3ecnj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs75n"]
+radius = 2.01556
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4giep"]
 atlas = ExtResource("2_3ecnj")
@@ -48,12 +51,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0r60"]
 radius = 3.36127
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vs75n"]
-radius = 2.76134
+[sub_resource type="CircleShape2D" id="CircleShape2D_usgd4"]
+radius = 9.84886
 
 [node name="enemy" type="CharacterBody2D"]
 position = Vector2(1, -47)
 script = ExtResource("1_gneul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 36)
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_vs75n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 35)
@@ -69,10 +77,13 @@ position = Vector2(-1, 38)
 scale = Vector2(18.455, 18.455)
 shape = SubResource("CircleShape2D_v0r60")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, 36)
-scale = Vector2(4, 4)
-shape = SubResource("CircleShape2D_vs75n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_usgd4")
+debug_color = Color(0.976471, 0, 0, 0.419608)
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
