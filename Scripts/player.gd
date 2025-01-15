@@ -6,7 +6,7 @@ extends CharacterBody2D
 const speed = 100
 
 func _ready() -> void:
-	Global.player_health = health_bar.value
+	health_bar.value = Global.player_health
 
 func _process(delta: float) -> void:
 	health_bar.value = Global.player_health
