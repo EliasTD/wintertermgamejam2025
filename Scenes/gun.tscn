@@ -12,3 +12,8 @@ texture = ExtResource("2_tqg4o")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(21, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

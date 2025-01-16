@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://iv5gi36hyol5"]
+[gd_scene load_steps=4 format=3 uid="uid://iv5gi36hyol5"]
 
-[ext_resource type="Texture2D" uid="uid://do3mo0fsya5ge" path="res://icon.svg" id="1_3ffau"]
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_t0dpe"]
+[ext_resource type="Texture2D" uid="uid://skh54m33nosg" path="res://Sprites/Characters/bullet.png" id="2_ov8hk"]
 
-[node name="bullet" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isa5o"]
+size = Vector2(3, 2)
+
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_t0dpe")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_isa5o")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3ffau")
+texture = ExtResource("2_ov8hk")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

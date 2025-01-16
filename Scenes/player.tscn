@@ -75,6 +75,7 @@ radius = 12.1655
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 3
+safe_margin = 1.0
 script = ExtResource("1_3qig5")
 
 [node name="DEBUG TOOLS" type="Node" parent="."]
@@ -104,6 +105,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_mfl1h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xum7p")
 max_value = 9.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqhio")
@@ -117,6 +119,7 @@ shape = SubResource("CircleShape2D_7b1te")
 [node name="SFX" type="Node" parent="."]
 
 [node name="SFX_Player-move" type="AudioStreamPlayer2D" parent="SFX"]
+position = Vector2(0, -1)
 stream = ExtResource("4_qkyjy")
 
 [connection signal="pressed" from="DEBUG TOOLS/Player Health Up" to="." method="_on_player_health_up_pressed"]

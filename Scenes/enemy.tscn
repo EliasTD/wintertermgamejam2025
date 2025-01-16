@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://8n7pusgnqxo7"]
+[gd_scene load_steps=12 format=3 uid="uid://8n7pusgnqxo7"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_gneul"]
 [ext_resource type="Texture2D" uid="uid://dqlfmd7gtfjfq" path="res://Sprites/Characters/Fire_Sprite.png" id="2_3ecnj"]
+[ext_resource type="PackedScene" uid="uid://cq1e21emss80p" path="res://Scenes/health_bar.tscn" id="3_c2ify"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vs75n"]
 radius = 2.01556
@@ -55,35 +56,37 @@ radius = 3.36127
 radius = 13.0
 
 [node name="enemy" type="CharacterBody2D"]
-position = Vector2(1, -47)
 script = ExtResource("1_gneul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 36)
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_vs75n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 35)
 sprite_frames = SubResource("SpriteFrames_7o8ei")
-frame_progress = 0.994304
+frame_progress = 0.0625484
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
-position = Vector2(-1, 38)
 scale = Vector2(18.455, 18.455)
 shape = SubResource("CircleShape2D_v0r60")
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(0, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_usgd4")
 debug_color = Color(0.976471, 0, 0, 0.419608)
 
+[node name="HealthBar" parent="." instance=ExtResource("3_c2ify")]
+offset_left = -8.0
+offset_top = 15.0
+offset_right = 6.0
+offset_bottom = 17.0
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

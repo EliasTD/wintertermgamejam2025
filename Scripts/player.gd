@@ -30,3 +30,6 @@ func player_movement(delta):
 		velocity.x = 0
 		velocity.y = 0
 	move_and_slide()
+
+func player():
+	pass
