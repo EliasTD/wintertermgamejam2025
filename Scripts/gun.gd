@@ -26,6 +26,7 @@ func _process(delta):
 			bullet_instance.global_position = muzzle.global_position
 			bullet_instance.rotation = rotation
 			loaded = false
+			$SFX_Shoot.play()
 			$Timer.start()
 		
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bvk4ae0o11v4h"]
 
-[ext_resource type="Script" path="res://Scenes/firewall_boss.gd" id="1_ut7ia"]
+[ext_resource type="Script" path="res://Scripts/firewall_boss.gd" id="1_ut7ia"]
 [ext_resource type="Texture2D" uid="uid://ccimwgxfcql4i" path="res://Sprites/Characters/Fire_Wall.png" id="1_vrv8r"]
 [ext_resource type="PackedScene" uid="uid://cq1e21emss80p" path="res://Scenes/health_bar.tscn" id="3_5sq4e"]
 

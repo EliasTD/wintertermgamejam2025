@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 var health = 50
 var health_max = 50
-var fire_spawn = 0
-const FIRE = preload("res://Scenes/enemy.tscn")
+var fire_count = 0
+var fire_max = 5
+const FIRE = preload("res://Scenes/fire_sprite.tscn")
 
 func _ready():
 	$AnimatedSprite2D.play("default")
@@ -23,9 +24,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_fire_spawn_timeout() -> void:
-	if get_child_count() <= 11:
-		print(get_child_count())
+	spawn_fire()
+	$fire_spawn.start()
+
+func spawn_fire():
+	if fire_count < fire_max:
+		fire_count += 1
 		var fire_instance = FIRE.instantiate()
 		get_tree().root.add_child(fire_instance)
+		fire_instance.died.connect(_on_fire_died)
 		fire_instance.global_position = $Marker2D.global_position
-		$fire_spawn.start()
+		
+func _on_fire_died():
+	fire_count -= 1
+	
+func enemy():
+	pass

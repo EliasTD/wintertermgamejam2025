@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfx7ie7xs2oep"]
+
+[ext_resource type="Script" path="res://Scripts/cpu_boss.gd" id="1_alqb2"]
+[ext_resource type="Texture2D" uid="uid://d0mrsaatr3crl" path="res://Sprites/Characters/CPU_boss.png" id="1_v2xxa"]
+[ext_resource type="PackedScene" uid="uid://cq1e21emss80p" path="res://Scenes/health_bar.tscn" id="2_i5p6h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqykk"]
+atlas = ExtResource("1_v2xxa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuqy3"]
+atlas = ExtResource("1_v2xxa")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jg8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuqy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqykk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmsjx"]
+size = Vector2(40, 44)
+
+[node name="cpu_boss" type="CharacterBody2D"]
+script = ExtResource("1_alqb2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7jg8s")
+frame = 4
+frame_progress = 0.543845
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_mmsjx")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_i5p6h")]
+offset_left = -17.0
+offset_top = 36.0
+offset_right = 18.0
+offset_bottom = 41.0
+
+[node name="change_dir_timer" type="Timer" parent="."]

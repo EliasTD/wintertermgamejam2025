@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://bolgr0w30dxul"]
+
+[ext_resource type="Script" path="res://Scripts/fire_sprite.gd" id="1_glvxi"]
+[ext_resource type="Texture2D" uid="uid://dqlfmd7gtfjfq" path="res://Sprites/Characters/Fire_Sprite.png" id="2_fa2k1"]
+[ext_resource type="PackedScene" uid="uid://cq1e21emss80p" path="res://Scenes/health_bar.tscn" id="3_w4gk3"]
+[ext_resource type="AudioStream" uid="uid://loxn4hgndw1k" path="res://SFX/CharcterTakesDamage_v1.wav" id="4_ifmug"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs75n"]
+radius = 2.01556
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4giep"]
+atlas = ExtResource("2_fa2k1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy5dn"]
+atlas = ExtResource("2_fa2k1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg06r"]
+atlas = ExtResource("2_fa2k1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv0n6"]
+atlas = ExtResource("2_fa2k1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o8ei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4giep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy5dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg06r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv0n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg06r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy5dn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0r60"]
+radius = 3.36127
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usgd4"]
+radius = 13.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_glvxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_vs75n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7o8ei")
+frame_progress = 0.0625484
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+scale = Vector2(18.455, 18.455)
+shape = SubResource("CircleShape2D_v0r60")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_usgd4")
+debug_color = Color(0.976471, 0, 0, 0.419608)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_w4gk3")]
+offset_left = -8.0
+offset_top = 15.0
+offset_right = 6.0
+offset_bottom = 17.0
+
+[node name="SFX_Player_Damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ifmug")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
