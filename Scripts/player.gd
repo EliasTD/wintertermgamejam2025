@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 #Handles Movement
 func _physics_process(delta):
 	player_movement(delta)
-	Global.player_position.emit(global_position)
+	Global.player_position = position
 		
 	
 	if velocity == Vector2(0, 0):

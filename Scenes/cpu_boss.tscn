@@ -94,4 +94,19 @@ offset_top = 36.0
 offset_right = 18.0
 offset_bottom = 41.0
 
-[node name="change_dir_timer" type="Timer" parent="."]
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="top_c" type="Marker2D" parent="."]
+position = Vector2(0, -31)
+
+[node name="left_c" type="Marker2D" parent="."]
+position = Vector2(-31, -2)
+
+[node name="bot_c" type="Marker2D" parent="."]
+position = Vector2(0, 31)
+
+[node name="right_c" type="Marker2D" parent="."]
+position = Vector2(30, -2)
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

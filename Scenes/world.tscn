@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://drrat731bsmph" path="res://Sprites/Tilesets/Game_Background.png" id="1_0c0it"]
 [ext_resource type="PackedScene" uid="uid://qhve5lmr0utd" path="res://Scenes/player.tscn" id="2_xksb0"]
-[ext_resource type="PackedScene" uid="uid://bvk4ae0o11v4h" path="res://Scenes/firewall_boss.tscn" id="4_slrap"]
+[ext_resource type="PackedScene" uid="uid://dfx7ie7xs2oep" path="res://Scenes/cpu_boss.tscn" id="3_tjtny"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upgvg"]
 texture = ExtResource("1_0c0it")
@@ -81,5 +81,5 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(171, 94)
 
-[node name="firewall_boss" parent="." instance=ExtResource("4_slrap")]
-position = Vector2(161, -57)
+[node name="cpu_boss" parent="." instance=ExtResource("3_tjtny")]
+position = Vector2(168, 26)

@@ -1,13 +1,16 @@
 extends Area2D
 
-const speed: int = 300
+var speed: int = 10
+var target: Vector2 = Global.player_position
+var velocity = Vector2(0, 0)
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite2D.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += transform.x * speed * delta
+	position += velocity
+
 
 func bullet():
 	pass
