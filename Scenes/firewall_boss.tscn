@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvk4ae0o11v4h"]
+[gd_scene load_steps=10 format=3 uid="uid://bvk4ae0o11v4h"]
 
 [ext_resource type="Script" path="res://Scripts/firewall_boss.gd" id="1_ut7ia"]
 [ext_resource type="Texture2D" uid="uid://ccimwgxfcql4i" path="res://Sprites/Characters/Fire_Wall.png" id="1_vrv8r"]
@@ -39,6 +39,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8eip"]
 size = Vector2(308, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4myv"]
+size = Vector2(308, 64)
+
 [node name="firewall_boss" type="CharacterBody2D"]
 script = ExtResource("1_ut7ia")
 
@@ -59,9 +62,13 @@ wait_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_t8eip")
+debug_color = Color(0.982589, 0, 0.360821, 0.42)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j4myv")
 
 [connection signal="timeout" from="fire_spawn" to="." method="_on_fire_spawn_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

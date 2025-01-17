@@ -12,12 +12,14 @@ func _process(delta: float) -> void:
 	position += velocity
 
 
-func bullet():
+	
+func enemy_bullet():
 	pass
 
 
 func _on_body_entered(body: Node2D) -> void:
-	self.queue_free()
+	if body.has_method("player"):
+		self.queue_free()
 	
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.queue_free()

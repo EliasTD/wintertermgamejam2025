@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bquvcemcfy75c"]
+[gd_scene load_steps=15 format=3 uid="uid://bquvcemcfy75c"]
 
 [ext_resource type="Script" path="res://Scripts/cpu_bullet.gd" id="1_8d1hc"]
 [ext_resource type="Texture2D" uid="uid://tf5hrqbo81mc" path="res://Sprites/Tilesets/Characters_with_background.png" id="1_grnxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce3sq"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8118"]
 atlas = ExtResource("1_grnxl")
@@ -85,9 +88,15 @@ animations = [{
 script = ExtResource("1_8d1hc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ce3sq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_28kmu")
 frame_progress = 0.48037
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.17233e-07, 0)
+scale = Vector2(0.8, 0.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

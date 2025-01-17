@@ -42,6 +42,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("enemy"):
 		print('enemyentered')
 		getting_hit = true
+
 		
 	
 
@@ -53,3 +54,12 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 
 func _on_inv_frames_timeout() -> void:
 	inv = false
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.has_method("enemy_bullet") and inv == false:
+		print('player took damage')
+		Global.player_health -= 1
+		$SFX_Damage.play()
+		inv = true
+		$inv_frames.start()
