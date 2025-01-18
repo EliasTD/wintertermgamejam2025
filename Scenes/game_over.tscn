@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=4 uid="uid://bf7c32al7cwil"]
+=======
+[gd_scene load_steps=5 format=4 uid="uid://cb35elbwrs3n4"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://drrat731bsmph" path="res://Sprites/Tilesets/Game_Background.png" id="1_u85bs"]
 
@@ -55,6 +59,10 @@ tile_map_data = PackedByteArray("AAAAAAsAAAACAAAAAAABAAsAAAACAAAAAAACAAsAAAACAAA
 tile_set = SubResource("TileSet_fbitp")
 
 [node name="Label" type="Label" parent="."]
+<<<<<<< Updated upstream
+=======
+layout_mode = 0
+>>>>>>> Stashed changes
 offset_left = 179.0
 offset_top = 155.0
 offset_right = 445.0
@@ -63,6 +71,10 @@ text = "Game Over"
 label_settings = SubResource("LabelSettings_76mp8")
 
 [node name="Button" type="Button" parent="."]
+<<<<<<< Updated upstream
+=======
+layout_mode = 0
+>>>>>>> Stashed changes
 offset_left = 200.0
 offset_top = 296.0
 offset_right = 425.0

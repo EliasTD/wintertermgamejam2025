@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=4 uid="uid://cq0qk3udvorhf"]
 
 [ext_resource type="Texture2D" uid="uid://drrat731bsmph" path="res://Sprites/Tilesets/Game_Background.png" id="1_pk2qw"]
 [ext_resource type="Script" path="res://Scripts/Start_button.gd" id="2_8wo64"]
+=======
+[gd_scene load_steps=5 format=4 uid="uid://b58rwer3hi5n3"]
+
+[ext_resource type="Texture2D" uid="uid://drrat731bsmph" path="res://Sprites/Tilesets/Game_Background.png" id="1_pk2qw"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7covl"]
 texture = ExtResource("1_pk2qw")
@@ -71,6 +77,9 @@ offset_top = 296.0
 offset_right = 425.0
 offset_bottom = 343.0
 text = "Play"
+<<<<<<< Updated upstream
 script = ExtResource("2_8wo64")
+=======
+>>>>>>> Stashed changes
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
