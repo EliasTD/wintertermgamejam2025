@@ -69,7 +69,6 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_upgvg")
 
 [node name="world" type="Node2D"]
-position = Vector2(0, 1)
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
