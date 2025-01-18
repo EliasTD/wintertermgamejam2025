@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://ebg8uo56a6dk"]
+[gd_scene load_steps=8 format=4 uid="uid://ebg8uo56a6dk"]
 
 [ext_resource type="Texture2D" uid="uid://drrat731bsmph" path="res://Sprites/Tilesets/Game_Background.png" id="1_0c0it"]
 [ext_resource type="PackedScene" uid="uid://qhve5lmr0utd" path="res://Scenes/player.tscn" id="2_xksb0"]
-[ext_resource type="PackedScene" uid="uid://bvk4ae0o11v4h" path="res://Scenes/firewall_boss.tscn" id="4_slrap"]
+[ext_resource type="PackedScene" uid="uid://dfx7ie7xs2oep" path="res://Scenes/cpu_boss.tscn" id="3_tjtny"]
+[ext_resource type="PackedScene" uid="uid://bolgr0w30dxul" path="res://Scenes/fire_sprite.tscn" id="4_q8xkm"]
+[ext_resource type="PackedScene" uid="uid://bvk4ae0o11v4h" path="res://Scenes/firewall_boss.tscn" id="5_l2vej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upgvg"]
 texture = ExtResource("1_0c0it")
@@ -69,6 +71,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_upgvg")
 
 [node name="world" type="Node2D"]
+position = Vector2(0, 1)
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -81,5 +84,11 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(171, 94)
 
-[node name="firewall_boss" parent="." instance=ExtResource("4_slrap")]
-position = Vector2(161, -57)
+[node name="cpu_boss" parent="." instance=ExtResource("3_tjtny")]
+position = Vector2(168, 26)
+
+[node name="enemy" parent="." instance=ExtResource("4_q8xkm")]
+position = Vector2(110, 160)
+
+[node name="firewall_boss" parent="." instance=ExtResource("5_l2vej")]
+position = Vector2(177, -52)
