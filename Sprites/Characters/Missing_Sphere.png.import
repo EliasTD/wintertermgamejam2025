@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k4cm8j28jxbj"
-path="res://.godot/imported/Motherboard.png-33a47b729a8bc1ca69dadc2417bfb9ba.ctex"
+uid="uid://bpb28wwxe1mxl"
+path="res://.godot/imported/Missing_Sphere.png-2c2baaf46b373728b90b53580b2f3565.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/Motherboard.png"
-dest_files=["res://.godot/imported/Motherboard.png-33a47b729a8bc1ca69dadc2417bfb9ba.ctex"]
+source_file="res://Sprites/Characters/Missing_Sphere.png"
+dest_files=["res://.godot/imported/Missing_Sphere.png-2c2baaf46b373728b90b53580b2f3565.ctex"]
 
 [params]
 

@@ -1,20 +1,25 @@
 extends Area2D
 
-const speed: int = 300
+var speed: int = 10
+var target: Vector2 = Global.player_position
+var velocity = Vector2(0, 0)
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite2D.play("default")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += transform.x * speed * delta
+	position += velocity
 
-func bullet():
+
+	
+func enemy_bullet():
 	pass
 
 
 func _on_body_entered(body: Node2D) -> void:
-	self.queue_free()
+	if body.has_method("player"):
+		self.queue_free()
 	
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.queue_free()

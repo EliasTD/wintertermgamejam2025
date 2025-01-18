@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn5c7hlond04y"]
+
+[ext_resource type="Script" path="res://Scripts/bug_sphere.gd" id="1_atvxd"]
+[ext_resource type="Texture2D" uid="uid://bpb28wwxe1mxl" path="res://Sprites/Characters/Missing_Sphere.png" id="1_dmc11"]
+[ext_resource type="Script" path="res://Scripts/bug_hitbox.gd" id="3_8eguj"]
+[ext_resource type="PackedScene" uid="uid://cq1e21emss80p" path="res://Scenes/health_bar.tscn" id="3_xxtcf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkf2l"]
+atlas = ExtResource("1_dmc11")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08eop"]
+atlas = ExtResource("1_dmc11")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmbyf"]
+atlas = ExtResource("1_dmc11")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkf2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08eop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmbyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qntm"]
+radius = 11.0
+
+[node name="bug_sphere" type="CharacterBody2D"]
+script = ExtResource("1_atvxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7q16u")
+frame_progress = 0.0526217
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+script = ExtResource("3_8eguj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_4qntm")
+debug_color = Color(0.992915, 0, 0.245263, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_xxtcf")]
+offset_left = -10.0
+offset_top = 12.0
+offset_right = 10.0
+offset_bottom = 16.0
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

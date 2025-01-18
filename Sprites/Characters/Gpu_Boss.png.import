@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqbuadhkxjw54"
-path="res://.godot/imported/Main_Room_Tileset.png-1de5bf37b0f962aaae6db8e72653d2af.ctex"
+uid="uid://qubexx78xd8e"
+path="res://.godot/imported/Gpu_Boss.png-bb1a5b21aa30b3243af024a317eef9b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/Main_Room_Tileset.png"
-dest_files=["res://.godot/imported/Main_Room_Tileset.png-1de5bf37b0f962aaae6db8e72653d2af.ctex"]
+source_file="res://Sprites/Characters/Gpu_Boss.png"
+dest_files=["res://.godot/imported/Gpu_Boss.png-bb1a5b21aa30b3243af024a317eef9b3.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfx7ie7xs2oep"]
+[gd_scene load_steps=9 format=3 uid="uid://dfx7ie7xs2oep"]
 
 [ext_resource type="Script" path="res://Scripts/cpu_boss.gd" id="1_alqb2"]
 [ext_resource type="Texture2D" uid="uid://d0mrsaatr3crl" path="res://Sprites/Characters/CPU_boss.png" id="1_v2xxa"]
@@ -74,6 +74,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmsjx"]
 size = Vector2(40, 44)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbfpv"]
+size = Vector2(40, 44)
+
 [node name="cpu_boss" type="CharacterBody2D"]
 script = ExtResource("1_alqb2")
 
@@ -87,6 +90,7 @@ frame_progress = 0.543845
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mmsjx")
+debug_color = Color(0.916899, 7.43139e-05, 0.707624, 0.42)
 
 [node name="HealthBar" parent="." instance=ExtResource("2_i5p6h")]
 offset_left = -17.0
@@ -94,4 +98,24 @@ offset_top = 36.0
 offset_right = 18.0
 offset_bottom = 41.0
 
-[node name="change_dir_timer" type="Timer" parent="."]
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="top_c" type="Marker2D" parent="."]
+position = Vector2(0, -31)
+
+[node name="left_c" type="Marker2D" parent="."]
+position = Vector2(-31, -2)
+
+[node name="bot_c" type="Marker2D" parent="."]
+position = Vector2(0, 31)
+
+[node name="right_c" type="Marker2D" parent="."]
+position = Vector2(30, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_hbfpv")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

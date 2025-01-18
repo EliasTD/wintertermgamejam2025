@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br3pnuvfyyfd"
-path="res://.godot/imported/GPU_Tilesets.png-97be3e3b7963439c43fc5edad0e23aaf.ctex"
+uid="uid://be1gu5rwj0mdn"
+path="res://.godot/imported/Missing_Triangle.png-670964259cc22ae6365da7a34e070ded.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tilesets/GPU_Tilesets.png"
-dest_files=["res://.godot/imported/GPU_Tilesets.png-97be3e3b7963439c43fc5edad0e23aaf.ctex"]
+source_file="res://Sprites/Characters/Missing_Triangle.png"
+dest_files=["res://.godot/imported/Missing_Triangle.png-670964259cc22ae6365da7a34e070ded.ctex"]
 
 [params]
 
